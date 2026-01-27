@@ -13,3 +13,4 @@
 ## Usage
 
 ## Contributors
+Jenna Leung, Archana Jagannathan, Jordan Sheahan
