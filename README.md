@@ -3,7 +3,6 @@
 # Project Title
 
 ## Overview
-Brief description of the project.
 
 ## Features
 
