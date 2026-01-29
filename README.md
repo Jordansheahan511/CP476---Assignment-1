@@ -5,7 +5,7 @@ Task To-Do Management System
 
 ## Overview
 This project provides a centralized and simple task management system that improves productivity and accountability.
-Users can create tasks with details such as titles, descriptions, due dates, and priority levels. They can also view or update these tasks, including their status, at any time. Additionally, tasks can be fi ltered by status or priority, ensuring that all team members can easily track responsibilities and progress.
+Users can create tasks with details such as titles, descriptions, due dates, and priority levels. They can also view or update these tasks, including their status, at any time. Additionally, tasks can be filtered by status or priority, ensuring that all team members can easily track responsibilities and progress.
 
 ## Features
 - Create, view, update, delete, and share tasks: Users can manage tasks with titles, descriptions, due dates, assigned individual, and priority levels
