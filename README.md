@@ -52,7 +52,8 @@ You can now:
 6. Filter or sort tasks
 7. Collaborate within your team
 
-## Contributors
-Jenna Leung  
-Archana Jagannathan  
-Jordan Sheahan  
+## Contributors and Summary of Contributions
+Jenna Leung - front end implementation, read me, database design package and setup
+Archana Jagannathan - back-end set up, updated Kanban
+Jordan Sheahan - front end implementation, wiki blog, database design package and setup, wiki blog
+
