@@ -53,7 +53,8 @@ You can now:
 7. Collaborate within your team
 
 ## Contributors and Summary of Contributions
-Jenna Leung - front end implementation, read me, database design package and setup
-Archana Jagannathan - back-end set up, updated Kanban
-Jordan Sheahan - front end implementation, wiki blog, database design package and setup, wiki blog
+- Jordan Sheahan - responsible for the front-end implementation and contributed to the development of the project wiki blog.
+- Archana Jagannathan - led the back-end setup and maintained updates to the Kanban board to track project progress.
+- Jenna Leung - designed the database architecture and prepared the project README documentation.
+
 
