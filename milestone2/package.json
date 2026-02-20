@@ -1,0 +1,21 @@
+{
+  "name": "milestone2-task-manager",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CP476 Milestone 02 - Task/To-Do Management System (frontend + backend + SQLite DB)",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-sqlite3": "^0.9.15",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}

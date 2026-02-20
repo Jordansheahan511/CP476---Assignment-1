@@ -1,0 +1,44 @@
+<!-- login -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Login</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="login">
+  <!-- green top bar -->
+  <header class="appbar">
+    <div class="appbar__left">Task Dashboard</div>
+  </header>
+
+  <!-- status line -->
+  <div id="statusMsg" class="status" aria-live="polite"></div>
+
+  <main class="page">
+    <!-- centered login box -->
+    <section class="card card--auth" aria-label="Login">
+      <h1 class="card__title">Login</h1>
+
+      <!-- “Not Registered? Create An Account” -->
+      <p class="card__hint">
+        Not Registered?
+        <a class="link" href="signup.html">Create An Account</a>
+      </p>
+
+      <form class="form" action="#" method="post">
+        <label class="label" for="login-email">EMAIL</label>
+        <input class="input" id="login-email" name="email" type="email" required />
+
+        <label class="label" for="login-password">PASSWORD</label>
+        <input class="input" id="login-password" name="password" type="password" required />
+
+        <!-- blue LOGIN button centered -->
+        <button class="btn btn--primary btn--center" type="submit">LOGIN</button>
+      </form>
+    </section>
+  </main>
+  <script src="js/app.js" defer></script>
+</body>
+</html>

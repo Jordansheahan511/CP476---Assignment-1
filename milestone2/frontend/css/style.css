@@ -1,0 +1,381 @@
+/* css/style.css */
+/* Shared styling so every page matches the same wireframe look:
+   - Green top bar
+   - Light bordered panels
+   - Centered auth card
+   - “Chip” labels on dashboard
+*/
+
+:root{
+  --green-bar: #b9d7b6;
+  --panel-border: #9bb89b;
+  --panel-inner: #dfe9df;
+  --text: #1b1b1b;
+
+  --blue: #2f74c0;
+  --light-btn: #efefef;
+
+  --chip-task: #cfeaf6;
+  --chip-date: #cfeaf6;
+  --chip-assignee: #cfeaf6;
+
+  --prio-high: #f2a3a3;
+  --prio-med: #f0c38a;
+  --prio-low: #f4e39a;
+
+  --status-done: #bfe3bf;
+  --status-progress: #f0c38a;
+  --status-notstarted: #f2a3a3;
+
+  --success: #79b56a;
+  --danger: #222;
+}
+
+*{ box-sizing: border-box; }
+body{
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background: #fff;
+}
+
+/* Top green bar */
+.appbar{
+  height: 44px;
+  background: var(--green-bar);
+  border-bottom: 2px solid var(--panel-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+}
+.appbar__left{ font-weight: 600; }
+.appbar__right{ font-size: 14px; }
+
+/* Page containers */
+.page{
+  min-height: calc(100vh - 44px);
+  display: grid;
+  place-items: center;
+  padding: 30px 14px;
+}
+.page--wide{
+  place-items: start center;
+  padding-top: 26px;
+}
+
+/* Auth card (signup/login) */
+.card{
+  width: 680px;
+  max-width: 100%;
+  border: 2px solid var(--panel-border);
+  background: #fff;
+  padding: 28px 28px 22px;
+}
+.card--auth{
+  width: 700px;
+  max-width: 95vw;
+  text-align: center;
+}
+.card__title{
+  margin: 0 0 10px;
+  font-size: 22px;
+  font-weight: 700;
+}
+.card__hint{
+  margin: 0 0 18px;
+  font-size: 13px;
+}
+
+/* Panel (dashboard/task pages) */
+.panel{
+  width: 900px;
+  max-width: 98vw;
+  border: 2px solid var(--panel-border);
+  background: #fff;
+  padding: 14px;
+}
+.panel__title{
+  margin: 0 0 10px;
+  font-size: 18px;
+  font-weight: 700;
+}
+.panel__subtitle{
+  margin: 0 0 10px;
+  font-size: 12px;
+}
+
+/* Form basics */
+.form{
+  width: 320px;
+  margin: 0 auto;
+  text-align: left;
+}
+.label{
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  margin: 10px 0 4px;
+}
+.input, .select, .textarea{
+  width: 100%;
+  border: 1px solid #c9c9c9;
+  padding: 7px 8px;
+  font-size: 13px;
+  background: #fff;
+}
+.textarea{ resize: vertical; }
+
+/* Buttons */
+.btn{
+  display: inline-block;
+  border: 1px solid #bdbdbd;
+  padding: 8px 10px;
+  font-size: 13px;
+  text-decoration: none;
+  color: #111;
+  background: var(--light-btn);
+  cursor: pointer;
+  text-align: center;
+}
+.btn--primary{
+  background: var(--blue);
+  border-color: #2a64a6;
+  color: #fff;
+}
+.btn--success{
+  background: var(--success);
+  border-color: #6aa45c;
+  color: #fff;
+}
+.btn--danger{
+  background: var(--danger);
+  border-color: #111;
+  color: #fff;
+}
+.btn--center{
+  margin: 16px auto 0;
+  display: block;
+  width: 120px;
+}
+
+/* Links */
+.link{ color: #2f74c0; text-decoration: none; }
+.link:hover{ text-decoration: underline; }
+.link--dark{ color: #1b1b1b; }
+
+/* Dashboard toolbar */
+.toolbar{
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.input--search{
+  width: 150px;
+}
+
+/* Grid header pills */
+.grid-head{
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.pill{
+  width: 100%;
+  border: 1px solid #bdbdbd;
+  background: #e6e6e6;
+  padding: 6px 8px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* Dashboard grid */
+.grid{
+  display: grid;
+  gap: 10px;
+}
+.grid__row{
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  align-items: center;
+}
+.grid__cell{ display: flex; align-items: center; }
+
+/* “Chips” */
+.chip{
+  display: inline-block;
+  min-width: 90px;
+  padding: 6px 10px;
+  border: 1px solid #bdbdbd;
+  font-size: 12px;
+  text-align: center;
+  text-decoration: none;
+  color: #111;
+}
+.chip--task{ background: var(--chip-task); min-width: 140px; text-align: left; }
+.chip--date{ background: var(--chip-date); }
+.chip--assignee{ background: var(--chip-assignee); }
+
+.chip--prio-high{ background: var(--prio-high); }
+.chip--prio-med{ background: var(--prio-med); }
+.chip--prio-low{ background: var(--prio-low); }
+
+.chip--status-done{ background: var(--status-done); }
+.chip--status-progress{ background: var(--status-progress); }
+.chip--status-notstarted{ background: var(--status-notstarted); }
+
+/* Dashboard footer buttons */
+.panel-footer{
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Create/Edit layout */
+.task-form{
+  display: grid;
+  grid-template-columns: 1.5fr 0.8fr;
+  gap: 14px;
+}
+.task-form__right .btn{
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* Task view layout */
+.task-view-top{
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.label-inline{ font-weight: 700; font-size: 12px; margin-right: 6px; }
+.value-inline{ font-size: 12px; }
+.value-badge{
+  display: inline-block;
+  padding: 6px 10px;
+  border: 1px solid #bdbdbd;
+  background: #f6f6f6;
+  font-size: 12px;
+  text-align: center;
+  width: 100%;
+}
+
+/* Color variants for Task View (status/priority) */
+.badge--status-done{ background: var(--status-done); }
+.badge--status-progress{ background: var(--status-progress); }
+.badge--status-notstarted{ background: var(--status-notstarted); }
+
+.meta-value{
+  padding: 2px 6px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+}
+.meta--prio-high{ background: var(--prio-high); border-color:#bdbdbd; }
+.meta--prio-med{ background: var(--prio-med); border-color:#bdbdbd; }
+.meta--prio-low{ background: var(--prio-low); border-color:#bdbdbd; }
+
+.task-view-body{
+  display: grid;
+  grid-template-columns: 1.5fr 0.8fr;
+  gap: 14px;
+}
+.box{
+  border: 1px solid #bdbdbd;
+  background: #fff;
+  min-height: 240px;
+}
+.box__title{
+  font-weight: 700;
+  font-size: 12px;
+  padding: 8px;
+  border-bottom: 1px solid #bdbdbd;
+}
+.box__content{
+  padding: 10px;
+  font-size: 12px;
+}
+.meta-row{
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #bdbdbd;
+  padding: 8px;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+.meta-label{ font-weight: 700; }
+
+/* Popover panels for sort/filter */
+.pop{
+  position: absolute;
+  top: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 360px;
+  max-width: 92vw;
+  border: 2px solid var(--panel-border);
+  background: #fff;
+  padding: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  z-index: 40;
+  display: none;
+}
+.pop[aria-hidden="false"]{ display: block; }
+.pop__row{ margin-bottom: 10px; }
+.pop__actions{ display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.toolbar__mid{ display: flex; gap: 8px; }
+
+/* Modal used for Share / add team members */
+.modal{ position: fixed; inset: 0; display: none; z-index: 60; }
+.modal[aria-hidden="false"]{ display: block; }
+.modal__backdrop{ position: absolute; inset: 0; background: rgba(0,0,0,0.35); }
+.modal__card{
+  position: relative;
+  width: 520px;
+  max-width: 92vw;
+  margin: 10vh auto 0;
+  background: #fff;
+  border: 2px solid var(--panel-border);
+  padding: 14px;
+}
+.modal__header{ display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.modal__title{ margin: 0; font-size: 16px; }
+.modal__close{ border: 1px solid #bdbdbd; background: #fff; width: 30px; height: 30px; cursor: pointer; }
+.modal__hint{ margin: 8px 0 12px; font-size: 12px; }
+.modal__actions{ display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+.modal__divider{ height: 1px; background: #d8d8d8; margin: 14px 0; }
+.modal__subtitle{ font-size: 12px; font-weight: 700; margin-bottom: 6px; }
+.modal__list{ margin: 0; padding-left: 16px; font-size: 12px; }
+
+/* Accessibility helper */
+.sr-only{
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+
+/* Status message used by app.js (non-wireframe, but small and unobtrusive) */
+.status{
+  margin: 10px auto 0;
+  width: 700px;
+  max-width: 95vw;
+  font-size: 12px;
+  padding: 8px 10px;
+  border: 1px solid #cfcfcf;
+  background: #fafafa;
+}
+.status--success{ border-color:#6aa45c; }
+.status--error{ border-color:#c15b5b; }
+
+
+/* Hide empty status message so no grey bar appears */
+.status:empty{ display:none; }

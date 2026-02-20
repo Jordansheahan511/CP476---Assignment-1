@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task View</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="view">
+  <header class="appbar">
+    <div class="appbar__left">Task Dashboard</div>
+    <nav class="appbar__right" aria-label="Account actions">
+      <a class="link link--dark" href="login.html">Logout/switch user</a>
+    </nav>
+  </header>
+
+  <!-- Small status line for form/API feedback -->
+  <div id="statusMsg" class="status" aria-live="polite"></div>
+
+  <main class="page page--wide">
+    <section class="panel" aria-label="Task View">
+      <h1 class="panel__title">Task View</h1>
+
+      <!-- Wireframe: top row shows Task title left and Status box right -->
+      <div class="task-view-top">
+        <div class="task-view-top__left">
+          <span class="label-inline">Task:</span>
+          <span class="value-inline">Submit CP 476 Assignment 1 to the MyLS drop box</span>
+        </div>
+
+        <div class="task-view-top__right">
+          <span class="label-inline">Status:</span>
+          <span class="value-badge">In Progress</span>
+        </div>
+      </div>
+
+      <!-- Wireframe: main 2-column content -->
+      <div class="task-view-body">
+        <div class="task-view-body__left">
+          <div class="box">
+            <div class="box__title">Task Description / Notes:</div>
+            <div class="box__content">
+              <p>Deliverables (what to submit)</p>
+              <ul>
+                <li>A single PDF (or well organized set of PDFs) plus GitHub links</li>
+                <li>Project proposal (1–2 pages)</li>
+                <li>Wireframes + requirements + data planning</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <aside class="task-view-body__right" aria-label="Task metadata">
+          <div class="meta-row"><span class="meta-label">Assigned to:</span><span class="meta-value">N/A</span></div>
+          <div class="meta-row"><span class="meta-label">Priority:</span><span class="meta-value">High</span></div>
+          <div class="meta-row"><span class="meta-label">Due Date:</span><span class="meta-value">Feb 14, 2025</span></div>
+
+          <!-- Wireframe: buttons on right -->
+          <a class="btn btn--primary" href="task-edit.html">Edit Task</a>
+          <a class="btn btn--light" href="dashboard.html">Return to All Tasks</a>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <script src="js/app.js" defer></script>
+</body>
+</html>

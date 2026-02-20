@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Account Creation</title>
+
+  <link rel="stylesheet" href="css/style.css" /> <!-- external CSS file -->
+</head>
+<body data-page="signup">
+   
+  <header class="appbar"> <!-- top green app bar -->
+
+    <div class="appbar__left">Task Dashboard</div><!-- website title -->
+  </header>
+
+
+  <div id="statusMsg" class="status" aria-live="polite"></div>
+
+  <main class="page"> <!-- cotainer for main page -->
+
+    <section class="card card--auth" aria-label="Create New Account">
+     
+      <h1 class="card__title">Create New Account</h1> <!-- page heading -->
+
+   
+      <p class="card__hint"> <!-- if already registered/have an accout -->
+        Already Registered?
+        <a class="link" href="login.html">Login</a> <!-- login link -->
+      </p>
+
+      <!-- sign up form -->
+      <form class="form" action="#" method="post">
+        <!-- name field -->
+        <label class="label" for="name">NAME</label>
+        <input class="input" id="name" name="name" type="text" placeholder="" required />
+
+        <!-- email field -->
+        <label class="label" for="email">EMAIL</label>
+        <input class="input" id="email" name="email" type="email" placeholder="" required />
+
+        <!-- pswd fieled -->
+        <label class="label" for="password">PASSWORD</label>
+        <input class="input" id="password" name="password" type="password" placeholder="" required />
+
+        <!-- date of birth field (calender) -->
+        <label class="label" for="dob">DATE OF BIRTH</label>
+        <input class="input" id="dob" name="dob" type="date" required />
+
+        <!-- sign up button -->
+        <button class="btn btn--primary btn--center" type="submit">SIGN UP</button>
+      </form>
+    </section>
+  </main>
+  <script src="js/app.js" defer></script>
+</body>
+</html>

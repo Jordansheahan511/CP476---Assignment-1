@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- responsive desingn -->
+  <title>Task Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="dashboard">
+  <!-- top bar and logout/switch user -->
+  <header class="appbar"> <!-- top navigation bar -->
+    <div class="appbar__left">Task Dashboard</div> <!-- app title -->
+
+    <nav class="appbar__right" aria-label="Account actions">
+      <a class="link link--dark" href="login.html">Logout/switch user</a> <!-- Logout/swithc user -->
+    </nav>
+  </header>
+
+  <div id="statusMsg" class="status" aria-live="polite"></div> <!-- status message-->
+
+  <main class="page page--wide">
+    
+    <section class="panel" aria-label="Task Dashboard"> <!-- task dashboard-->
+      <!-- search and filter/sort buttons -->
+      <div class="toolbar">
+        <!-- search box -->
+        <div class="toolbar__left">
+          <label class="sr-only" for="search">Search</label>
+          <input class="input input--search" id="search" type="search" placeholder="" />
+        </div>
+
+        <div class="toolbar__mid">
+          <button id="btnSort" class="btn btn--light" type="button">Sort</button>  <!-- sort button-->
+          <button id="btnFilter" class="btn btn--light" type="button">Filter</button> <!-- filter button-->
+        </div>
+
+        <div class="toolbar__right"></div>
+      </div>
+
+      <!-- headers for cols on task dashboard -->
+      <div class="grid-head" role="row">
+        <div class="grid-head__cell">
+          <button class="pill pill--gray" type="button">Task Dashboard</button>
+        </div>
+        <div class="grid-head__cell">
+          <button class="pill pill--gray" type="button">Priority</button>
+        </div>
+        <div class="grid-head__cell">
+          <button class="pill pill--gray" type="button">Status</button>
+        </div>
+        <div class="grid-head__cell">
+          <button class="pill pill--gray" type="button">Due Date</button>
+        </div>
+        <div class="grid-head__cell">
+          <button class="pill pill--gray" type="button">Assigned to</button>
+        </div>
+      </div>
+
+      <!-- Wireframe: task rows with colored “chips” -->
+      <div id="taskGrid" class="grid" role="table" aria-label="Tasks table">
+        <!-- task rows will be dynamically injected here by app.js -->
+      </div>
+
+      <!-- bottom buttons -->
+      <div class="panel-footer">
+        <button id="btnShare" class="btn btn--light" type="button">Share</button> <!-- share button -->
+        <a class="btn btn--success" href="task-create.html">Create Task</a><!-- create task button -->
+      </div>
+
+      <!-- Share modal: add team members by email (team members see the same dashboard tasks) -->
+      <div id="shareModal" class="modal" aria-hidden="true" role="dialog" aria-label="Share tasks with team members">
+        <div class="modal__backdrop" data-close="true"></div>
+        <div class="modal__card">
+          <div class="modal__header">
+            <h2 class="modal__title">Add Team Member</h2>
+            <button class="modal__close" type="button" data-close="true" aria-label="Close">×</button> <!-- close button -->
+          </div>
+
+          <p class="modal__hint">Enter a registered user’s email. Once added, both accounts can see the same tasks on the dashboard.</p><!-- instructions -->
+
+          <form id="teamAddForm" class="modal__form" action="#" method="post"> <!-- add member -->
+            <label class="label" for="teamEmail">Team member email</label> <!-- email for pesron being added-->
+            <input class="input" id="teamEmail" type="email" placeholder="name@example.com" required />
+            <div class="modal__actions">
+              <button class="btn btn--primary" type="submit">Add</button><!-- submit -->
+              <button class="btn btn--light" type="button" data-close="true">Cancel</button> <!-- cancel -->
+            </div>
+          </form>
+
+          <div class="modal__divider"></div>
+          <div>
+            <div class="modal__subtitle">Current team</div>
+            <ul id="teamList" class="modal__list"></ul> <!-- team list-->
+          </div>
+        </div>
+      </div>
+
+      <!-- popup for sort -->
+      <div id="sortPanel" class="pop" aria-hidden="true">
+        <div class="pop__row">
+          <label class="label" for="sortBy">Sort by</label> <!-- label -->
+          <select id="sortBy" class="select"><!-- dropdown -->
+            <!-- dropdown options to sort by -->
+            <option value="due_date">Due date</option>
+            <option value="priority">Priority</option>
+            <option value="status">Status</option>
+            <option value="assigned">Assigned individual</option>
+          </select>
+        </div>
+        <div class="pop__row"><!-- direction dropdown-->
+          <label class="label" for="sortDir">Direction</label>
+          <select id="sortDir" class="select">
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
+          </select>
+        </div>
+        <div class="pop__actions">
+          <button id="applySort" class="btn btn--primary" type="button">Apply</button> <!-- apply sort-->
+          <button id="clearSort" class="btn btn--light" type="button">Clear</button> <!-- clear -->
+        </div>
+      </div>
+
+      <!-- popup for filter -->
+      <div id="filterPanel" class="pop" aria-hidden="true">
+        <div class="pop__row">
+          <label class="label" for="filterStatus">Status</label> <!-- status filter-->
+          <select id="filterStatus" class="select">
+            <!-- status options-->
+            <option value="">All</option>
+            <option value="Not Started">Not Started</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+          </select>
+        </div>
+        <div class="pop__row">
+          <label class="label" for="filterPriority">Priority</label> <!-- priority filter -->
+          <select id="filterPriority" class="select">
+            <!-- priority options -->
+            <option value="">All</option>
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+          </select>
+        </div>
+        <div class="pop__row">
+          <label class="label" for="filterAssigned">Assigned individual</label> <!-- assigned filter -->
+          <select id="filterAssigned" class="select">
+            <option value="">All</option>
+          </select>
+        </div>
+        <div class="pop__row">
+          <label class="label" for="filterDue">Due date</label> <!-- dude date filter-->
+          <select id="filterDue" class="select">
+            <!-- duedate options -->
+            <option value="">All</option>
+            <option value="overdue">Overdue</option>
+            <option value="week">Due this week</option>
+            <option value="month">Due this month</option>
+            <option value="none">No due date</option>
+          </select>
+        </div>
+        <div class="pop__actions">
+          <button id="applyFilter" class="btn btn--primary" type="button">Apply</button> <!-- apply filter -->
+          <button id="clearFilter" class="btn btn--light" type="button">Clear</button> <!-- clear -->
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>

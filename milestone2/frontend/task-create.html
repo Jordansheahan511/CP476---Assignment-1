@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic page setup stuff -->
+  <meta charset="UTF-8" />
+  <!-- Makes the page responsive on phones/tablets -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create New Task</title>
+
+  <!-- Main stylesheet for layout + styling -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<!-- data-page helps JS know what page it's on -->
+<body data-page="create">
+
+  <!-- Top navigation bar (same as other pages) -->
+  <header class="appbar">
+    <!-- App title / branding -->
+    <div class="appbar__left">Task Dashboard</div>
+
+    <!-- Account-related links (like logout) -->
+    <nav class="appbar__right" aria-label="Account actions">
+      <a class="link link--dark" href="login.html">Logout/switch user</a>
+    </nav>
+  </header>
+
+  <!-- Quick spot for success/error messages from the form or API -->
+  <div id="statusMsg" class="status" aria-live="polite"></div>
+
+  <!-- Main page content -->
+  <main class="page page--wide">
+
+    <!-- Main card/panel that holds the form -->
+    <section class="panel" aria-label="Create New Task">
+
+      <!-- Big page heading -->
+      <h1 class="panel__title">Create New Task</h1>
+
+      <!-- Main task form -->
+      <!-- action="#" for now since JS will handle submission -->
+      <form class="task-form" action="#" method="post">
+
+        <!-- Left side: title + description -->
+        <div class="task-form__left">
+
+          <!-- Task title input -->
+          <label class="label" for="task-title">Task:</label>
+          <input 
+            class="input" 
+            id="task-title" 
+            name="title" 
+            type="text" 
+            required 
+          />
+
+          <!-- Bigger text area for extra notes/details -->
+          <label class="label" for="task-desc">Task Description / Notes:</label>
+          <textarea 
+            class="textarea" 
+            id="task-desc" 
+            name="description" 
+            rows="10">
+          </textarea>
+
+        </div>
+
+        <!-- Right side: status, assignee, priority, due date -->
+        <aside class="task-form__right" aria-label="Task metadata">
+
+          <!-- Task status dropdown -->
+          <label class="label" for="task-status">Status:</label>
+          <select class="select" id="task-status" name="status" required>
+            <option value="Not Started">Not Started</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+          </select>
+
+          <!-- Assigned user dropdown (filled by JS) -->
+          <label class="label" for="task-assigned">Assigned to:</label>
+          <select class="select" id="task-assigned" name="assigned_to" required>
+            <!-- JS (app.js) will replace this with real team members -->
+            <option value="N/A">N/A</option>
+          </select>
+
+          <!-- Priority level dropdown -->
+          <label class="label" for="task-priority">Priority:</label>
+          <select class="select" id="task-priority" name="priority" required>
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+          </select>
+
+          <!-- Due date picker -->
+          <label class="label" for="task-due">Due Date:</label>
+          <input 
+            class="input" 
+            id="task-due" 
+            name="due_date" 
+            type="date" 
+            required 
+          />
+
+          <!-- Submit button (green = success action) -->
+          <button class="btn btn--success" type="submit">
+            Create Task
+          </button>
+
+          <!-- Quick link back to dashboard -->
+          <a class="btn btn--light" href="dashboard.html">
+            Return to All Tasks
+          </a>
+
+        </aside>
+      </form>
+    </section>
+  </main>
+
+  <!-- Main JS file that handles form logic and API calls -->
+  <script src="js/app.js" defer></script>
+
+</body>
+</html>

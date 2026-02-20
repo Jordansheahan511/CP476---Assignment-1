@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic page setup -->
+  <meta charset="UTF-8" />
+
+  <!-- Makes the layout responsive on different screen sizes -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Edit Task</title>
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<!-- data-page lets app.js know this is the edit page -->
+<body data-page="edit">
+
+  <!-- Top navigation bar (same layout as other pages) -->
+  <header class="appbar">
+    <!-- App name / branding -->
+    <div class="appbar__left">Task Dashboard</div>
+
+    <!-- Account-related links -->
+    <nav class="appbar__right" aria-label="Account actions">
+      <a class="link link--dark" href="login.html">Logout/switch user</a>
+    </nav>
+  </header>
+
+  <!-- Small message area for success/error feedback -->
+  <!-- JS will update this after saving or deleting -->
+  <div id="statusMsg" class="status" aria-live="polite"></div>
+
+  <!-- Main content area -->
+  <main class="page page--wide">
+
+    <!-- Main panel/card that holds the edit form -->
+    <section class="panel" aria-label="Edit Task">
+
+      <!-- Page heading -->
+      <h1 class="panel__title">Edit Task</h1>
+
+      <!-- Quick instruction line -->
+      <!-- Just a small reminder for the user -->
+      <p class="panel__subtitle">
+        Enter changes and click Save Changes when you're done.
+      </p>
+
+      <!-- Edit form -->
+      <!-- action="#" since JS handles submission -->
+      <form class="task-form" action="#" method="post">
+
+        <!-- Left side: task title + description -->
+        <div class="task-form__left">
+
+          <!-- Task title (pre-filled from existing task) -->
+          <label class="label" for="edit-title">Task:</label>
+          <input
+            class="input"
+            id="edit-title"
+            name="title"
+            type="text"
+            required
+          />
+
+          <!-- Task description / notes (also pre-filled) -->
+          <label class="label" for="edit-desc">Task Description / Notes:</label>
+          <textarea
+            class="textarea"
+            id="edit-desc"
+            name="description"
+            rows="10">
+          </textarea>
+
+        </div>
+
+        <!-- Right side: metadata (status, assignee, etc.) -->
+        <aside class="task-form__right" aria-label="Task metadata">
+
+          <!-- Status dropdown (current value selected) -->
+          <label class="label" for="edit-status">Status:</label>
+          <select class="select" id="edit-status" name="status" required>
+            <option value="Not Started">Not Started</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+          </select>
+
+          <!-- Assigned user dropdown -->
+          <!-- JS will populate this with real team members -->
+          <label class="label" for="edit-assigned">Assigned to:</label>
+          <select class="select" id="edit-assigned" name="assigned_to" required>
+          </select>
+
+          <!-- Priority level -->
+          <label class="label" for="edit-priority">Priority:</label>
+          <select class="select" id="edit-priority" name="priority" required>
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+          </select>
+
+          <!-- Due date (pre-filled from existing task) -->
+          <label class="label" for="edit-due">Due Date:</label>
+          <input
+            class="input"
+            id="edit-due"
+            name="due_date"
+            type="date"
+            required
+          />
+
+          <!-- Save button (main action) -->
+          <button class="btn btn--primary" type="submit">
+            Save Changes
+          </button>
+
+          <!-- Quick link back to dashboard -->
+          <a class="btn btn--light" href="dashboard.html">
+            Return to All Tasks
+          </a>
+
+          <!-- Delete button (JS should confirm before deleting) -->
+          <button class="btn btn--danger" type="button">
+            Delete Task
+          </button>
+
+        </aside>
+      </form>
+    </section>
+  </main>
+
+  <!-- Main JS file handles:
+       - loading existing task data
+       - saving updates
+       - deleting tasks
+       - showing status messages -->
+  <script src="js/app.js" defer></script>
+
+</body>
+</html>
